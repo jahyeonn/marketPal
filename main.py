@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 from datetime import datetime # TODO: Implement Later
 import yfinance as yf
 
-
+#env variables
 load_dotenv()
 
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
@@ -48,6 +48,8 @@ async def hello(interaction: discord.Interaction):
 async def say(interaction: discord.Interaction, thing_to_say: str):
     await interaction.response.send_message(f"{interaction.user.name} said: '{thing_to_say}'")
 
+
+# simple ping command
 @bot.tree.command(name="ping", description="it will show a ping!")
 async def ping(interaction : Interaction):
     bot_latency = round(bot.latency*1000)
