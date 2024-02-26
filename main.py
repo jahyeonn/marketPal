@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import os
 from dotenv import load_dotenv
-from datetime import datetime # TODO: Implement Later
+from datetime import datetime 
 import yfinance as yf
 
 #env variables
@@ -150,8 +150,11 @@ def get_specific_news(ticker):
 @bot.tree.command(name='chart')
 async def stock(ctx, ticker: str):
     try:
+
+        # Current Date
+        todaysDate = datetime.now()
         # Download stock data for the given ticker
-        data = yf.download(ticker, start="2019-01-01", end="2024-02-16")
+        data = yf.download(ticker, start="2019-01-01", end=todaysDate)
 
         # Reset index and get dates and close prices
         data = data.reset_index()
